@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parth Mahajan | Robotics Engineer</title>
+    <meta name="description" content="Parth Mahajan is a robotics software engineer working on SLAM, localization and state estimation. Projects, experience and blogs." />
+    <link rel="canonical" href="https://mahajanparth.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mahajanparth.github.io/" />
+    <meta property="og:title" content="Parth Mahajan | Robotics Engineer" />
+    <meta property="og:description" content="Robotics software engineer working on SLAM, localization and state estimation, in simulation and on real robots." />
+    <meta property="og:image" content="https://mahajanparth.github.io/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Parth Mahajan",
+        "jobTitle": "Robotics Software Engineer",
+        "url": "https://mahajanparth.github.io/",
+        "address": { "@type": "PostalAddress", "addressLocality": "Boston", "addressRegion": "MA", "addressCountry": "US" },
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "Northeastern University" },
+        "knowsAbout": ["Robotics", "Motion Planning", "SLAM", "Robotic Perception", "State Estimation", "Reinforcement Learning"],
+        "sameAs": [
+          "https://github.com/mahajanparth",
+          "https://www.linkedin.com/in/parth-mahajan-6118705b/",
+          "https://medium.com/@parthmhajan",
+          "https://scholar.google.com/citations?user=vpaEeysAAAAJ"
+        ]
+      }
+    </script>
+    <!-- Hide scroll-revealed content before GSAP loads (skipped for reduced motion). -->
+    <script>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');
+    </script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+      <a href="#top" class="nav__brand">Parth Mahajan</a>
+      <nav class="nav__links" id="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#timeline">Journey</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Research</a>
+        <a href="#writing">Blogs</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#beyond">Beyond</a>
+        <a href="#contact" class="nav__cta">Contact</a>
+      </nav>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero dark" id="top">
+        <canvas class="hero__canvas" id="swarm" aria-hidden="true"></canvas>
+        <div class="hero__inner">
+          <p class="eyebrow hero__eyebrow" data-hero-fade>Robotics Software Engineer · Boston</p>
+          <h1 class="hero__title" id="hero-title">Parth Mahajan.</h1>
+          <p class="hero__sub" data-hero-fade>I specialize in SLAM, state estimation and perception that extend beyond simulation<br class="br-wide" /> to real robots, made robust with modern deep learning and AI.</p>
+          <div class="hero__ctas" data-hero-fade>
+            <a href="#projects" class="btn btn--primary">See my work</a>
+            <a href="#about" class="btn btn--link">About me <span aria-hidden="true">›</span></a>
+          </div>
+        </div>
+        <div class="hero__scroll" data-hero-fade aria-hidden="true"><span></span></div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about section" id="about">
+        <div class="container about__grid">
+          <figure class="about__photo reveal-clip">
+            <img id="about-photo" alt="Portrait of Parth Mahajan" loading="lazy" decoding="async" width="600" height="920" />
+          </figure>
+          <div class="about__body">
+            <p class="eyebrow">About me</p>
+            <h2 class="h2 reveal" id="about-tagline"></h2>
+            <div class="about__bio" id="about-bio"></div>
+            <blockquote class="about__motto reveal" id="about-motto"></blockquote>
+            <div class="about__ctas reveal" id="about-ctas"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="stats section section--tint">
+        <div class="container stats__grid" id="stats"></div>
+      </section>
+
+      <!-- EDUCATION + SKILLS -->
+      <section class="section" id="education">
+        <div class="container">
+          <p class="eyebrow">Education &amp; Skills</p>
+          <h2 class="h1 reveal">Where I studied<br /><span class="muted">and what I work with.</span></h2>
+          <div class="edu" id="edu"></div>
+          <div class="skills" id="skills"></div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="section section--tint" id="timeline">
+        <div class="container">
+          <p class="eyebrow">Professional Timeline</p>
+          <h2 class="h1 reveal">The journey so far.</h2>
+          <div class="tl-wrap">
+            <div class="tl__rail" aria-hidden="true"><div class="tl__fill"></div></div>
+            <ol class="tl" id="tl"></ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="container">
+          <p class="eyebrow">Work Experience</p>
+          <h2 class="h1 reveal">Where I’ve worked.</h2>
+          <div class="xp" id="xp"></div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="projects dark" id="projects">
+        <div class="projects__pin">
+          <div class="container projects__head">
+            <div>
+              <p class="eyebrow">Projects at a glance</p>
+              <h2 class="h1">Things I’ve built.</h2>
+            </div>
+            <div class="projects__controls">
+              <div class="filters" id="filters" role="toolbar" aria-label="Filter projects"></div>
+              <div class="carousel-arrows">
+                <button class="carousel-arrow" id="projects-prev" aria-label="Previous projects">‹</button>
+                <button class="carousel-arrow" id="projects-next" aria-label="Next projects">›</button>
+              </div>
+            </div>
+          </div>
+          <div class="projects__viewport">
+            <div class="projects__track" id="projects-track"></div>
+          </div>
+          <div class="container"><div class="carousel-bar projects__bar" aria-hidden="true"><span id="projects-bar"></span></div></div>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section class="section section--tint" id="publications">
+        <div class="container">
+          <p class="eyebrow">Publications</p>
+          <h2 class="h1 reveal">Papers.</h2>
+          <div class="pubs" id="pubs"></div>
+        </div>
+      </section>
+
+      <!-- WRITING -->
+      <section class="section" id="writing">
+        <div class="container">
+          <p class="eyebrow">Professional Blogs</p>
+          <h2 class="h1 reveal">Learning by teaching.</h2>
+          <p class="lead reveal">I write on Medium about the math and engineering behind robotics, from Lie theory to model quantization and LLMs on robots.</p>
+          <div class="blogs" id="blogs"></div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section class="section section--tint" id="certifications">
+        <div class="container">
+          <div class="certs__head">
+            <div>
+              <p class="eyebrow">Certifications</p>
+              <h2 class="h1 reveal">Courses I’ve completed.</h2>
+            </div>
+            <div class="carousel-arrows">
+              <button class="carousel-arrow" id="certs-prev" aria-label="Previous certificates">‹</button>
+              <button class="carousel-arrow" id="certs-next" aria-label="Next certificates">›</button>
+            </div>
+          </div>
+        </div>
+        <div class="certs__viewport">
+          <div class="certs" id="certs"></div>
+        </div>
+        <div class="container"><div class="carousel-bar" aria-hidden="true"><span id="certs-bar"></span></div></div>
+      </section>
+
+      <!-- AVOCATIONS -->
+      <section class="section" id="beyond">
+        <div class="container">
+          <p class="eyebrow">Beyond robotics</p>
+          <h2 class="h1 reveal">Outside of robotics,<br /><span class="muted">I paint and play the violin.</span></h2>
+          <div class="avo" id="avo"></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact dark" id="contact">
+        <div class="container contact__inner">
+          <p class="eyebrow">Get in touch</p>
+          <h2 class="contact__title" id="contact-title">Let’s talk.</h2>
+          <p class="lead">Reach out if you want to work together or just talk robotics.</p>
+          <a class="contact__email" id="contact-email" href="mailto:mahajan.parth@northeastern.edu">mahajan.parth@northeastern.edu</a>
+          <div class="socials" id="socials"></div>
+          <p class="contact__loc" id="contact-loc"></p>
+        </div>
+        <footer class="footer container">
+          <span>© <span id="year"></span> Parth Mahajan</span>
+          <a href="#top">Back to top ↑</a>
+        </footer>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate preview" hidden>
+      <button class="lightbox__close" aria-label="Close">×</button>
+      <img alt="" />
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
