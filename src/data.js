@@ -12,7 +12,7 @@ export const profile = {
   location: 'Boston, MA, USA',
   email: { user: 'mahajan.parth', domain: 'northeastern.edu' },
   photo: asset('img/parth-portrait.webp'),
-  resume: '', // add your CV at public/assets/resume.pdf, then set: asset('resume.pdf')
+  resume: asset('resume.pdf'), // public/assets/resume.pdf
   links: {
     github: 'https://github.com/mahajanparth',
     linkedin: 'https://www.linkedin.com/in/parth-mahajan-6118705b/',

@@ -105,7 +105,9 @@ export function renderAll() {
   $('#about-ctas').innerHTML = `
     ${profile.resume ? `<a class="btn btn--primary" href="${profile.resume}" target="_blank" rel="noopener">Résumé</a>` : ''}
     <a class="btn btn--ghost" href="${profile.links.github}" target="_blank" rel="noopener">${icons.github} GitHub</a>
-    <a class="btn btn--ghost" href="${profile.links.linkedin}" target="_blank" rel="noopener">${icons.linkedin} LinkedIn</a>`;
+    <a class="btn btn--ghost" href="${profile.links.linkedin}" target="_blank" rel="noopener">${icons.linkedin} LinkedIn</a>
+    <a class="btn btn--ghost" href="${profile.links.medium}" target="_blank" rel="noopener">${icons.medium} Medium</a>
+    <a class="btn btn--ghost" href="mailto:${profile.email.user}@${profile.email.domain}">${icons.mail} Email</a>`;
 
   // Stats
   $('#stats').innerHTML = stats.map((s) => `
