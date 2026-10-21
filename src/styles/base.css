@@ -19,6 +19,7 @@
   --radius: 28px;
   --gutter: clamp(16px, 4vw, 48px);
   --maxw: 1200px;
+  --nav-h: 52px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --font: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
 }
@@ -79,7 +80,18 @@ ul, ol { padding: 0; list-style: none; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
 .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
-.section { padding-block: clamp(80px, 12vw, 160px); background: var(--bg); }
+.section { padding-block: clamp(56px, 9vw, 96px); background: var(--bg); }
+/* Desktop/laptop: every section is one screen. Content is centred inside 100svh and the
+   padding (top clears the 52px fixed nav) shrinks with viewport height so nothing clips. */
+@media (min-width: 1024px) {
+  .section {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: calc(var(--nav-h) + clamp(12px, 3svh, 40px)) clamp(20px, 4svh, 56px);
+  }
+}
 .section--tint { background: var(--bg-tint); }
 
 .eyebrow {
@@ -87,17 +99,17 @@ ul, ol { padding: 0; list-style: none; }
   font-weight: 600;
   letter-spacing: 0;
   color: var(--accent);
-  margin-bottom: 14px;
+  margin-bottom: clamp(8px, 1.4svh, 14px);
 }
 .h1 {
-  font-size: clamp(40px, 6.4vw, 80px);
+  font-size: clamp(36px, min(6.4vw, 7svh), 76px);
   line-height: 1.04;
   letter-spacing: -0.035em;
   font-weight: 700;
-  margin-bottom: clamp(40px, 6vw, 72px);
+  margin-bottom: clamp(24px, min(5vw, 5svh), 56px);
 }
 .h2 {
-  font-size: clamp(28px, 3.6vw, 44px);
+  font-size: clamp(26px, min(3.4vw, 5svh), 42px);
   line-height: 1.1;
   letter-spacing: -0.028em;
   font-weight: 700;

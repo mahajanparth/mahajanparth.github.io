@@ -137,7 +137,7 @@ export function renderAll() {
 
   // Timeline
   $('#tl').innerHTML = timeline.map((t, i) => `
-    <li class="tl__item ${i % 2 ? 'tl__item--r' : ''}">
+    <li class="tl__item ${i % 2 ? 'tl__item--r' : ''}" style="--row: ${i + 1}">
       <span class="tl__node" aria-hidden="true"></span>
       <div class="tl__card card">
         ${t.period ? `<p class="meta">${esc(t.period)}</p>` : ''}

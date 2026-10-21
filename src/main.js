@@ -26,6 +26,7 @@ if (!reduced) {
 }
 const $ = (sel) => document.querySelector(sel);
 const projectsStrip = initCarousel({ viewport: $('.projects__viewport'), prev: $('#projects-prev'), next: $('#projects-next'), bar: $('#projects-bar') });
+initCarousel({ viewport: $('.xp__viewport'), prev: $('#xp-prev'), next: $('#xp-next'), bar: $('#xp-bar') });
 initCarousel({ viewport: $('.certs__viewport'), prev: $('#certs-prev'), next: $('#certs-next'), bar: $('#certs-bar') });
 initFilters({ animate: !reduced, onChange: projectsStrip.reset });
 
