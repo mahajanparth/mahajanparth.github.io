@@ -342,6 +342,28 @@
   .projects__bar { margin-top: clamp(16px, 3svh, 32px); }
 }
 
+/* YouTube facade (projects + experience) */
+.yt { position: relative; display: block; width: 100%; height: 100%; padding: 0; cursor: pointer; background: #000; overflow: hidden; }
+.yt img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease), opacity 0.3s; }
+.yt__play {
+  position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px;
+  display: grid; place-items: center; border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55); color: #fff; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.4s var(--ease), background-color 0.3s;
+}
+.yt__play svg { width: 22px; height: 22px; margin-left: 3px; }
+.yt:hover .yt__play, .yt:focus-visible .yt__play { transform: scale(1.1); background: var(--accent); }
+.pcard:hover .yt img { transform: scale(1.05); }
+.yt__frame { display: block; width: 100%; height: 100%; border: 0; background: #000; }
+
+.xp__videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+.xp__video { margin: 0; }
+.xp__video .yt, .xp__video .yt__frame { aspect-ratio: 16 / 9; height: auto; border-radius: 12px; }
+.xp__video .yt__play { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+.xp__video .yt__play svg { width: 16px; height: 16px; }
+.xp__video figcaption { margin-top: 6px; font-size: 13px; color: var(--muted); line-height: 1.3; }
+
 /* Generated project illustrations */
 .art { width: 100%; height: 100%; transition: transform 1s var(--ease); }
 .art .a-dot { fill: #2997ff; opacity: 0.85; }

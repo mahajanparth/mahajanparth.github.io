@@ -120,6 +120,9 @@ export const experience = [
   },
   {
     org: 'Robotics Research Center, IIIT Hyderabad',
+    videos: [
+      { id: 'Wx-gY0UCyOk', title: 'Pure Pursuit on the 1-ton EV' },
+    ],
     logo: 'RRC',
     url: 'https://robotics.iiit.ac.in',
     role: 'Research Assistant',
@@ -134,6 +137,11 @@ export const experience = [
   },
   {
     org: 'Addverb Limited',
+    videos: [
+      { id: 'YZQDPML2W5Y', title: 'DYNAMO autonomous mobile robot' },
+      { id: 'H_tgc9rUKzY', title: 'UR5 bin picking' },
+      { id: 'odsU2IXGxCE', title: 'Deep Q-learning on the AMR' },
+    ],
     logo: 'A',
     url: 'https://addverb.com',
     role: 'Robotics Software Engineer L2',
@@ -149,6 +157,11 @@ export const experience = [
   },
   {
     org: 'Unmanned Aerial Systems DTU',
+    videos: [
+      { id: 'VqzQCizFKWw', title: '21-UAV swarm flight, Jaisalmer' },
+      { id: 'NcbNkCsM9Cg', title: '9-UAV V formation' },
+      { id: 'dCsL4g-YQkY', title: 'MOPSO multi-target search' },
+    ],
     logo: 'UAS',
     url: '',
     role: 'Team Lead',
@@ -266,6 +279,7 @@ export const projects = [
   },
   {
     title: 'Collision-Free Diffusion',
+    youtube: 'KiVm1f3pQCs',
     sub: 'DDPM + Fast ESDF guidance',
     tags: ['Motion Planning', 'Learning'],
     org: 'Research',
@@ -283,6 +297,7 @@ export const projects = [
   },
   {
     title: 'Pick & Place Bin Picking',
+    youtube: 'H_tgc9rUKzY',
     sub: 'UR5 · 1.5K+ SKUs · Addverb',
     tags: ['Motion Planning', 'Perception'],
     org: 'Addverb',
@@ -291,6 +306,7 @@ export const projects = [
   },
   {
     title: 'DYNAMO AMR',
+    youtube: 'YZQDPML2W5Y',
     sub: 'Autonomous mobile robot · Addverb',
     tags: ['Perception'],
     org: 'Addverb',
@@ -309,6 +325,7 @@ export const projects = [
   },
   {
     title: 'Meher Baba Swarm',
+    youtube: 'VqzQCizFKWw',
     sub: '21 UAVs · Jaisalmer desert',
     tags: ['Swarms', 'Control'],
     org: 'UAS DTU',
@@ -317,6 +334,7 @@ export const projects = [
   },
   {
     title: 'Decentralized Swarm Controller',
+    youtube: 'NcbNkCsM9Cg',
     sub: 'Consensus-based multi-agent control',
     tags: ['Swarms', 'Control'],
     org: 'UAS DTU',
@@ -325,6 +343,7 @@ export const projects = [
   },
   {
     title: 'Pure Pursuit & Stanley on a Real EV',
+    youtube: 'Wx-gY0UCyOk',
     sub: '1-ton electric vehicle · IIIT Hyderabad',
     tags: ['Control'],
     org: 'RRC, IIIT-H',
@@ -333,6 +352,7 @@ export const projects = [
   },
   {
     title: 'Pure Pursuit · CARLA',
+    youtube: 'OyvnAglbao4',
     sub: 'Autonomous driving stack',
     tags: ['Control'],
     org: 'Personal',
@@ -341,6 +361,7 @@ export const projects = [
   },
   {
     title: 'Deep Q-Learning Bang-Bang Agent',
+    youtube: 'irF-f59cy98',
     sub: 'Training & generalization',
     tags: ['Learning', 'Control'],
     org: 'Addverb',

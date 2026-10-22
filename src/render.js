@@ -88,7 +88,16 @@ const art = {
   },
 };
 
+// YouTube facade: a local poster with a play button; the player iframe loads only on click (main.js).
+const ytThumb = (id) => `${import.meta.env.BASE_URL}assets/img/yt/${id}.webp`;
+const yt = (id, title, poster = ytThumb(id)) => `
+  <button class="yt" data-yt="${esc(id)}" aria-label="Play video: ${esc(title)}">
+    <img src="${esc(poster)}" alt="" loading="lazy" />
+    <span class="yt__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg></span>
+  </button>`;
+
 function media(p) {
+  if (p.youtube) return yt(p.youtube, p.title, p.image || ytThumb(p.youtube));
   if (p.video) return `<video muted loop playsinline preload="none" data-src="${esc(p.video)}" poster="${esc(p.image || '')}"></video>`;
   if (p.image) return `<img src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" />`;
   return `<svg class="art art--${p.art}" viewBox="0 0 400 300" role="img" aria-label="${esc(p.title)} illustration">${art[p.art]?.() ?? ''}</svg>`;
@@ -159,6 +168,7 @@ export function renderAll() {
       </div>
       <p class="xp__tech">${esc(x.tech)}</p>
       <ul class="xp__points">${x.points.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>
+      ${x.videos ? `<div class="xp__videos">${x.videos.map((v) => `<figure class="xp__video">${yt(v.id, v.title)}<figcaption>${esc(v.title)}</figcaption></figure>`).join('')}</div>` : ''}
       ${x.place || x.period ? `<p class="meta">${[x.place, x.period].filter(Boolean).map(esc).join(' · ')}</p>` : ''}
     </article>`).join('');
 

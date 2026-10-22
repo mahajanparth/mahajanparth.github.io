@@ -30,6 +30,19 @@ initCarousel({ viewport: $('.xp__viewport'), prev: $('#xp-prev'), next: $('#xp-n
 initCarousel({ viewport: $('.certs__viewport'), prev: $('#certs-prev'), next: $('#certs-next'), bar: $('#certs-bar') });
 initFilters({ animate: !reduced, onChange: projectsStrip.reset });
 
+// YouTube facades: swap the poster for the player on click.
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.yt[data-yt]');
+  if (!btn) return;
+  const f = document.createElement('iframe');
+  f.className = 'yt__frame';
+  f.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.yt}?autoplay=1&rel=0&playsinline=1&modestbranding=1`;
+  f.title = btn.getAttribute('aria-label').replace('Play video: ', '');
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  btn.replaceWith(f);
+});
+
 // Anchor links: smooth-scroll via Lenis, close the mobile menu.
 const nav = document.querySelector('#nav');
 const toggle = document.querySelector('#nav-toggle');
