@@ -292,6 +292,11 @@
 .pcard__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: 14px; }
 .pcard__tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .pcard__repo { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--chip); transition: background-color 0.3s, transform 0.4s var(--ease); }
+/* Whole card opens the repo; play buttons and icon links sit above the stretched link. */
+.pcard--linked { position: relative; cursor: pointer; }
+.pcard__link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.pcard--linked .yt, .pcard--linked .pcard__repo { position: relative; z-index: 2; }
+.pcard--linked:hover .pcard__title { color: var(--accent); }
 .pcard__repo:hover { background: var(--accent); transform: scale(1.1); }
 .pcard__repo svg { width: 18px; height: 18px; }
 .pcard__tags li { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); }

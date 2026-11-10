@@ -176,11 +176,11 @@ export function renderAll() {
   $('#filters').innerHTML = categories.map((c, i) =>
     `<button class="filter${i === 0 ? ' is-active' : ''}" data-filter="${esc(c)}" aria-pressed="${i === 0}">${esc(c)}</button>`).join('');
   $('#projects-track').innerHTML = projects.map((p) => `
-    <article class="pcard" data-tags="${esc(p.tags.join('|'))}" data-flip-id="${slug(p.title)}">
+    <article class="pcard${p.repo ? ' pcard--linked' : ''}" data-tags="${esc(p.tags.join('|'))}" data-flip-id="${slug(p.title)}">
       <div class="pcard__media">${media(p)}${p.status ? `<span class="pcard__badge">${esc(p.status)}</span>` : ''}</div>
       <div class="pcard__body">
         <p class="pcard__org">${esc(p.org)}</p>
-        <h3 class="pcard__title">${esc(p.title)}</h3>
+        <h3 class="pcard__title">${p.repo ? `<a class="pcard__link" href="${esc(p.repo)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</h3>
         <p class="pcard__sub">${esc(p.sub)}</p>
         <p class="pcard__text">${esc(p.text)}</p>
         <div class="pcard__foot">
