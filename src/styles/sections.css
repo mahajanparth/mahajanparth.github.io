@@ -316,34 +316,36 @@
 .carousel-arrow:disabled { opacity: 0.3; cursor: default; }
 .carousel-bar { height: 2px; margin-top: 32px; border-radius: 2px; background: var(--line); overflow: hidden; }
 .carousel-bar span { display: block; height: 100%; background: linear-gradient(90deg, #2997ff, #a259ff); transform: scaleX(0); transform-origin: 0 50%; }
-.projects .carousel-arrows { display: none; }
+/* Next arrow is filled with the accent so it reads as "more this way". */
+.projects .carousel-arrow#projects-next:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.5); animation: arrow-pulse 2s infinite; }
+.projects .carousel-arrow#projects-next:hover:not(:disabled) { background: var(--accent); filter: brightness(1.15); }
+@keyframes arrow-pulse { 70% { box-shadow: 0 0 0 12px rgba(41, 151, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(41, 151, 255, 0); } }
+@media (prefers-reduced-motion: reduce) { .projects .carousel-arrow#projects-next { animation: none; } }
 
-/* Horizontal strip at every width (on phones it replaces a ~12,000px tall stack of cards). */
-.projects__viewport { overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; scroll-snap-type: x proximity; }
-.projects__viewport::-webkit-scrollbar { display: none; }
-.projects__track {
-  display: flex;
-  gap: clamp(16px, 2vw, 28px);
-  width: max-content;
-  max-width: none;
-  margin: 0;
-  padding-left: max(var(--gutter), calc((100% - var(--maxw)) / 2 + var(--gutter)));
-  padding-right: max(var(--gutter), 10vw);
+/* Strip is the width of the content column and holds a whole number of cards (1 / 2 / 3),
+   so no card is ever cut off at the edge; paging moves exactly one frame. */
+.projects__viewport {
+  --per: 1; --gap: clamp(16px, 2vw, 28px);
+  width: min(100% - 2 * var(--gutter), var(--maxw) - 2 * var(--gutter));
+  margin-inline: auto;
+  overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+  container-type: inline-size;
 }
-.pcard { width: min(84vw, 360px); scroll-snap-align: start; scroll-margin-left: var(--gutter); }
+.projects__viewport::-webkit-scrollbar { display: none; }
+.projects__track { display: flex; gap: var(--gap); width: max-content; max-width: none; margin: 0; padding: 0; }
+.pcard { width: calc((100cqi - (var(--per) - 1) * var(--gap)) / var(--per)); scroll-snap-align: start; }
+@media (min-width: 700px) { .projects__viewport { --per: 2; } }
 .projects__bar { margin-top: 24px; }
 
 @media (min-width: 1024px) {
   .projects { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-block: calc(var(--nav-h) + clamp(12px, 3svh, 40px)) clamp(16px, 3svh, 48px); }
-  .projects__viewport { scroll-snap-type: none; }
-  .pcard { width: clamp(320px, 28vw, 400px); }
+  .projects__viewport { --per: 3; }
   /* Media height follows the viewport so a full card row always fits one screen. */
   .pcard__media { aspect-ratio: auto; height: clamp(110px, min(21svh, calc(100svh - 645px)), 240px); }
   .pcard__body { padding: clamp(14px, 2.2svh, 24px) clamp(20px, 2vw, 28px) clamp(16px, 2.6svh, 28px); gap: 4px; }
   .pcard__title { font-size: clamp(18px, 2.4svh, 22px); }
   .pcard__text { font-size: clamp(14px, 1.75svh, 15px); margin-top: 4px; }
   .pcard__foot { margin-top: 10px; }
-  .projects .carousel-arrows { display: flex; }
   .projects__bar { margin-top: clamp(16px, 3svh, 32px); }
 }
 

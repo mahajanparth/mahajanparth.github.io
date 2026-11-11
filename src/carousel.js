@@ -1,7 +1,7 @@
 // Horizontal card strip: sideways gestures move the strip, vertical gestures scroll the page.
 // Used by Projects (desktop) and Certifications.
 
-export function initCarousel({ viewport, prev, next, bar }) {
+export function initCarousel({ viewport, prev, next, bar, paged = false }) {
   const max = () => viewport.scrollWidth - viewport.clientWidth;
 
   const update = () => {
@@ -19,10 +19,18 @@ export function initCarousel({ viewport, prev, next, bar }) {
     if (max() <= 0) return;
     e.preventDefault();
     e.stopPropagation();
-    viewport.scrollLeft += dx;
+    if (!paged) { viewport.scrollLeft += dx; return; }
+    // Snapped strips turn one whole frame per gesture instead of drifting between cards.
+    if (locked) return;
+    locked = true;
+    page(Math.sign(dx));
+    setTimeout(() => { locked = false; }, 600);
   }, { passive: false });
+  let locked = false;
 
-  const page = (dir) => viewport.scrollBy({ left: dir * viewport.clientWidth * 0.8, behavior: 'smooth' });
+  // A paged strip moves exactly one frame (its width plus the gap after the last visible card).
+  const step = () => (paged ? viewport.clientWidth + (parseFloat(getComputedStyle(viewport.firstElementChild).columnGap) || 0) : viewport.clientWidth * 0.8);
+  const page = (dir) => viewport.scrollBy({ left: dir * step(), behavior: 'smooth' });
   prev?.addEventListener('click', () => page(-1));
   next?.addEventListener('click', () => page(1));
 

@@ -194,15 +194,6 @@ export const projects = [
     text: 'SLAM for a hull-inspection crawler on low-texture steel: wheel and IMU odometry, AprilTag loop closures and opportunistic visual constraints in one factor graph, with under 15 cm trajectory RMSE across sessions.',
   },
   {
-    title: 'NeuROAM Multi-Robot Dataset',
-    sub: 'Institute for Experiential Robotics · ROS 2, Jetson',
-    tags: ['SLAM & Estimation', 'Perception'],
-    org: 'Northeastern',
-    art: 'lidar',
-    repo: 'https://github.com/neufieldrobotics/NeuROAM',
-    text: 'A large-scale, multi-robot dataset built to push current mapping and SLAM systems. Five robots (Spot, Unitree Go2 and Go2-W, Agile-X Hunter and Scout) carry identical Ouster LiDAR, FLIR stereo, VectorNav IMU, u-blox GPS and mesh-radio payloads, recording synchronized indoor and outdoor runs.',
-  },
-  {
     title: 'Uncertainty-Aware Camera Calibration',
     sub: 'Certifiable, information-driven view selection',
     tags: ['Perception', 'SLAM & Estimation'],
