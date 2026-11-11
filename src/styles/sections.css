@@ -316,11 +316,22 @@
 .carousel-arrow:disabled { opacity: 0.3; cursor: default; }
 .carousel-bar { height: 2px; margin-top: 32px; border-radius: 2px; background: var(--line); overflow: hidden; }
 .carousel-bar span { display: block; height: 100%; background: linear-gradient(90deg, #2997ff, #a259ff); transform: scaleX(0); transform-origin: 0 50%; }
+/* Large arrows sit in the side gutters beside the strip; on narrow screens they overlap the card edges. */
+.projects__stage { position: relative; --arrow: 56px; }
+.projects__arrow {
+  position: absolute; top: 50%; z-index: 3; transform: translateY(-50%);
+  width: var(--arrow); height: var(--arrow); font-size: calc(var(--arrow) * 0.6); padding-bottom: 4px;
+  background: rgba(22, 22, 23, 0.8); backdrop-filter: blur(10px);
+}
+.projects__arrow--prev { left: max(4px, calc((100% - var(--maxw)) / 2 + var(--gutter) - var(--arrow) - 20px)); }
+.projects__arrow--next { right: max(4px, calc((100% - var(--maxw)) / 2 + var(--gutter) - var(--arrow) - 20px)); }
+.projects__arrow:disabled { opacity: 0; pointer-events: none; }
 /* Next arrow is filled with the accent so it reads as "more this way". */
-.projects .carousel-arrow#projects-next:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.5); animation: arrow-pulse 2s infinite; }
-.projects .carousel-arrow#projects-next:hover:not(:disabled) { background: var(--accent); filter: brightness(1.15); }
-@keyframes arrow-pulse { 70% { box-shadow: 0 0 0 12px rgba(41, 151, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(41, 151, 255, 0); } }
-@media (prefers-reduced-motion: reduce) { .projects .carousel-arrow#projects-next { animation: none; } }
+.projects__arrow--next:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.5); animation: arrow-pulse 2s infinite; }
+.projects__arrow--next:hover:not(:disabled) { background: var(--accent); filter: brightness(1.15); }
+@keyframes arrow-pulse { 70% { box-shadow: 0 0 0 14px rgba(41, 151, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(41, 151, 255, 0); } }
+@media (prefers-reduced-motion: reduce) { .projects__arrow--next { animation: none; } }
+@media (min-width: 1024px) { .projects__stage { --arrow: 64px; } }
 
 /* Strip is the width of the content column and holds a whole number of cards (1 / 2 / 3),
    so no card is ever cut off at the edge; paging moves exactly one frame. */
