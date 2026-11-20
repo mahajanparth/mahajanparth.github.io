@@ -181,10 +181,20 @@ export const categories = ['All', 'SLAM & Estimation', 'Perception', 'Learning',
 
 const gh = (repo) => `https://github.com/mahajanparth/${repo}`;
 
-// Newest first. `image` or `video` (mp4 in public/assets/video, with `image` as its
+// Listed in display order. `image` or `video` (mp4 in public/assets/video, with `image` as its
 // poster) are optional; projects without either get a generated illustration from `art`.
 // `repo` adds a GitHub link, `status` shows a small badge.
 export const projects = [
+  {
+    title: 'Certifiable Galilean IMU Preintegration',
+    sub: 'QCQP + SDP relaxation of the Gal(3) factor',
+    tags: ['SLAM & Estimation'],
+    org: 'Research',
+    status: 'In progress',
+    art: 'ellipse',
+    repo: gh('CERTIFIABLE_GAL_IMU_SLAM'),
+    text: 'Applying certifiable optimization to the direct-product Galilean IMU preintegration factor used in GTSAM, so the estimate comes with a certificate that it is globally optimal.',
+  },
   {
     title: 'DEEP_VIO',
     sub: 'Monocular VIO with learned front-ends · C++, GTSAM, ONNX',
@@ -193,14 +203,6 @@ export const projects = [
     image: asset('img/deep-vio.webp'),
     repo: gh('DEEP_VIO'),
     text: 'Tightly coupled monocular VIO written from scratch in C++: KLT tracking, on-manifold IMU preintegration and a GTSAM fixed-lag smoother as the baseline. A SuperPoint + LightGlue front-end, run in C++ through ONNX Runtime, cuts mean ATE on EuRoC Machine Hall by 26% (0.213 to 0.158 m).',
-  },
-  {
-    title: 'Multi-Session V-SLAM on Ship Hulls',
-    sub: 'Crabi Robotics · C++, ROS 2, GTSAM',
-    tags: ['SLAM & Estimation', 'Perception'],
-    org: 'Crabi Robotics',
-    art: 'slam',
-    text: 'SLAM for a hull-inspection crawler on low-texture steel: wheel and IMU odometry, AprilTag loop closures and opportunistic visual constraints in one factor graph, with under 15 cm trajectory RMSE across sessions.',
   },
   {
     title: 'Uncertainty-Aware Camera Calibration',
@@ -213,14 +215,12 @@ export const projects = [
     text: 'Scores candidate views by marginal Fisher information (Schur complement) and picks E-, A- or D-optimal subsets with greedy and Frank–Wolfe solvers that carry duality-gap certificates. On real ChArUco data it cut held-out reprojection RMSE 15% (0.883 to 0.752 px) versus random views, within 2.5% of exhaustive-search optima.',
   },
   {
-    title: 'Certifiable Galilean IMU Preintegration',
-    sub: 'QCQP + SDP relaxation of the Gal(3) factor',
-    tags: ['SLAM & Estimation'],
-    org: 'Research',
-    status: 'In progress',
-    art: 'ellipse',
-    repo: gh('CERTIFIABLE_GAL_IMU_SLAM'),
-    text: 'Applying certifiable optimization to the direct-product Galilean IMU preintegration factor used in GTSAM, so the estimate comes with a certificate that it is globally optimal.',
+    title: 'Multi-Session V-SLAM on Ship Hulls',
+    sub: 'Crabi Robotics · C++, ROS 2, GTSAM',
+    tags: ['SLAM & Estimation', 'Perception'],
+    org: 'Crabi Robotics',
+    art: 'slam',
+    text: 'SLAM for a hull-inspection crawler on low-texture steel: wheel and IMU odometry, AprilTag loop closures and opportunistic visual constraints in one factor graph, with under 15 cm trajectory RMSE across sessions.',
   },
   {
     title: 'G1 Humanoid Obstacle Avoidance',
