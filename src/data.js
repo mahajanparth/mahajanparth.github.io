@@ -186,6 +186,15 @@ const gh = (repo) => `https://github.com/mahajanparth/${repo}`;
 // `repo` adds a GitHub link, `status` shows a small badge.
 export const projects = [
   {
+    title: 'DEEP_VIO',
+    sub: 'Monocular VIO with learned front-ends · C++, GTSAM, ONNX',
+    tags: ['SLAM & Estimation', 'Perception', 'Learning'],
+    org: 'Personal',
+    image: asset('img/deep-vio.webp'),
+    repo: gh('DEEP_VIO'),
+    text: 'Tightly coupled monocular VIO written from scratch in C++: KLT tracking, on-manifold IMU preintegration and a GTSAM fixed-lag smoother as the baseline. A SuperPoint + LightGlue front-end, run in C++ through ONNX Runtime, cuts mean ATE on EuRoC Machine Hall by 26% (0.213 to 0.158 m).',
+  },
+  {
     title: 'Multi-Session V-SLAM on Ship Hulls',
     sub: 'Crabi Robotics · C++, ROS 2, GTSAM',
     tags: ['SLAM & Estimation', 'Perception'],
